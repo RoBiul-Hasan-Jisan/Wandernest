@@ -47,6 +47,7 @@ const AISuggestionPage = () => {
 
       const data = await res.json();
       setResult(data);
+
     } catch (error) {
       console.error("Error fetching AI suggestion:", error);
       setResult({ error: error.message || "Failed to fetch suggestion. Please try again later." });

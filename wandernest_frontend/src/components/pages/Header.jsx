@@ -89,7 +89,8 @@ function Header() {
                 <span>Create Trip</span>
               </Button>
             </a>
-            <a href="/create-trip">
+            {/* FIXED: Changed href from /create-trip to /my-trips */}
+            <a href="/my-trips">
               <Button
                 variant="outline"
                 className="rounded-xl border-2 border-blue-500/30 bg-slate-800/40 text-slate-200 hover:bg-blue-500/20 hover:border-blue-400 hover:text-white hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 px-6 py-2 font-semibold"

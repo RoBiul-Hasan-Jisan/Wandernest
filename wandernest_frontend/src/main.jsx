@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Header from './components/pages/Header.jsx'
 import Footer from './components/pages/Footer.jsx'
 import { Toaster } from './components/ui/sonner.jsx'
-import CreateTrip from './create-trip/index.jsx'
+import CreateTrip from './components/pages/CreateTrip.jsx'
 import HowItWorks from './components/pages/HowItWorks.jsx'
 import ContactUs from './components/pages/ContactUs.jsx'
 import TermsOfService from './components/pages/TermsOfService.jsx'
@@ -17,78 +17,129 @@ import Office from './components/pages/Office.jsx'
 import JoinUs from './components/pages/joinus.jsx'
 import TripDetails from './components/Trips/TripDetails'
 import AISuggestionPage from "./components/pages/AISuggestionPage";
-const router=createBrowserRouter([
-  {
-    path:'/',
-    element:<App/>
-  },
+import MyTrips from './components/pages/MyTrips.jsx';
 
-  {
-    path:'/how-it-works',
-    element:<HowItWorks/>
-  },
-  {
-    path:'/contact',
-    element:<ContactUs/>
-  },
-  {
-    path:'/terms',
-    element:<TermsOfService/>
-  },
-   {
-    path:'/create-trip',
-    element:<CreateTrip/>
-  },
-  {
-    path:'/privacy',
-    element:<PrivacyPolicy/>
-  },
-  {
-    path:'/cookies',
-    element:<CookiePolicy/>
-  },
-  {
-    path:'/user-manual',
-    element:<UserManual/>
-  },
-   {
-    path:'/user-join',
-    element:<JoinUs/>
-  },
-  {
-  path: '/view-trip/:tripId',
-  element: <TripDetails />
-},
+// Create a layout component that includes Header and Footer
+const Layout = ({ children }) => (
+  <div className="min-h-screen flex flex-col">
+    <Header />
+    <main className="flex-1">
+      {children}
+    </main>
+    <Footer />
+  </div>
+);
 
+const router = createBrowserRouter([
   {
-    path: '/ai-suggestion',               
-    element: <AISuggestionPage />,
-
+    path: '/',
+    element: (
+      <Layout>
+        <App />
+      </Layout>
+    )
   },
   {
-    path: '/offices',               
-    element: <Office />,
-
+    path: '/how-it-works',
+    element: (
+      <Layout>
+        <HowItWorks />
+      </Layout>
+    )
+  },
+  {
+    path: '/contact',
+    element: (
+      <Layout>
+        <ContactUs />
+      </Layout>
+    )
+  },
+  {
+    path: '/terms',
+    element: (
+      <Layout>
+        <TermsOfService />
+      </Layout>
+    )
+  },
+  {
+    path: '/create-trip',
+    element: (
+      <Layout>
+        <CreateTrip />
+      </Layout>
+    )
+  },
+  {
+    path: '/my-trips',
+    element: (
+      <Layout>
+        <MyTrips />
+      </Layout>
+    )
+  },
+  {
+    path: '/privacy',
+    element: (
+      <Layout>
+        <PrivacyPolicy />
+      </Layout>
+    )
+  },
+  {
+    path: '/cookies',
+    element: (
+      <Layout>
+        <CookiePolicy />
+      </Layout>
+    )
+  },
+  {
+    path: '/user-manual',
+    element: (
+      <Layout>
+        <UserManual />
+      </Layout>
+    )
+  },
+  {
+    path: '/user-join',
+    element: (
+      <Layout>
+        <JoinUs />
+      </Layout>
+    )
+  },
+  {
+    path: '/view-trip/:tripId',
+    element: (
+      <Layout>
+        <TripDetails />
+      </Layout>
+    )
+  },
+  {
+    path: '/ai-suggestion',
+    element: (
+      <Layout>
+        <AISuggestionPage />
+      </Layout>
+    )
+  },
+  {
+    path: '/offices',
+    element: (
+      <Layout>
+        <Office />
+      </Layout>
+    )
   }
-])
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   
-    
-       
-         
-            
-              <Header/>
-              <Toaster  />
-              <RouterProvider router={router} />
-              <Footer />
-             
-             
-          
-          
-        
-      
-  
+    <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>,
 )
