@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const AISuggestionPage = () => {
@@ -139,6 +139,44 @@ const AISuggestionPage = () => {
           )}
         </motion.div>
       )}
+    </div>
+  );
+};
+
+export default AISuggestionPage;
+*/
+
+import React from "react";
+import { motion } from "framer-motion";
+
+const AISuggestionPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 flex flex-col items-center pt-32 py-12 px-4">
+      <h1 className="text-4xl font-extrabold text-white mb-16 drop-shadow-lg text-center">
+        AI Travel Suggestion
+      </h1>
+
+      <div className="w-full max-w-2xl h-[700px] rounded-2xl shadow-2xl overflow-hidden">
+        <iframe
+          src="https://robiulhasanjisan88-travel-recommendation.hf.space/?__theme=light"
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          className="rounded-2xl"
+          title="AI Travel Recommendation"
+        />
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mt-8 text-white text-lg font-semibold text-center max-w-2xl"
+      >
+        Use the interactive interface above to get personalized travel destination
+        suggestions based on your preferences. Select your Budget, Climate,
+        Duration, Activity, Season, and Region to see recommendations instantly.
+      </motion.p>
     </div>
   );
 };
